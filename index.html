@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Nursery registration form </title>
+    <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Nursery Registration Form</div>
+    <div class="content">
+      <form action="#" id="myForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Child's Full Name</span>
+            <input type="text" placeholder="Enter name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Child's Date Of Birth</span>
+            <input type="text" placeholder="Enter date of birth" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent's Email</span>
+            <input type="text" placeholder="Enter email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent's Phone Number</span>
+            <input type="text" placeholder="Enter mobile number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent's occupation</span>
+            <input type="text" placeholder="Enter occupation" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Enter Address(with PinCode)</span>
+            <input type="text" placeholder="Enter address here" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+     const myForm= document.getElementById("myForm");
+     myForm.addEventListener("submit", (e)  =>{
+         e.preventDefault();
+        
+         const request= new XMLHttpRequest();
+         request.open("post", "register.php");
+         request.onload=function(){
+             console.log(request.responseText);
+         }
+         request.send(new FormData(myForm));
+     });
+  </script>
+
+</body>
+</html>
